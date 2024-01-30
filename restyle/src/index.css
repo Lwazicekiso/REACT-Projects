@@ -1,0 +1,35 @@
+     h1 {
+            font-weight: bold;
+        }
+
+        body {
+                background-color: #52ACFF;
+                background-image: linear-gradient(90deg, #52ACFF 25%, #FFE32C 100%);        }
+        
+
+        button {
+            padding: 10px;
+            width: 80px;
+            background-color: rgb(228, 21, 21);
+            border-color: rgb(228, 21, 21);
+            border-radius: 10%;
+            
+        }
+
+        #todoEntry {
+            width: 265px;
+            height: 33px;
+            
+            
+        }
+
+
+        
+        .todoSpace{
+            background-color: antiquewhite;
+            border-radius: 10%;
+            width: 70%;
+        }
+    p{
+      border: black;
+    }

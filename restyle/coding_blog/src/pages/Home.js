@@ -1,4 +1,4 @@
-// Home.js
+Q// Home.js
 import React, { useEffect } from "react";
 import Footer from "./Footer";
 
@@ -15,6 +15,7 @@ export function Home({ posts }) {
           <div id='Post' key={newpost.title}>
             <h1>{newpost.title}</h1>
             <p>{newpost.content}</p>
+            <button>Delete</button>
           </div>
         ))}
       </section>

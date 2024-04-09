@@ -1,5 +1,4 @@
 import React from 'react';
-import { Home } from './Home';
 
 export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts }) {
   const handleAddPost = (e) => {

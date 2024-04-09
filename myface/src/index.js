@@ -1,4 +1,5 @@
 // App.js
+import React from "react";
 import ReactDOM from 'react-dom/client';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -23,13 +24,13 @@ export function App() {
   const addPost = (newPost) => {
     setPosts((prevPosts) => [...prevPosts, newPost]);
   };
-
+/*
   function handleAddPost(e) {
     e.preventDefault();
     const newPost = { title: titleinp, content: postInput };
     addPost(newPost);
   }
-
+*/
   return (
     <BrowserRouter>
       <Routes>
@@ -45,7 +46,9 @@ export function App() {
               setPostInput={setPostInput}
               setTitle={setTitle}
               titleinp={titleinp}
-              setPosts={setPosts} // Pass setPosts function to update posts
+              setPosts={setPosts}
+              addPost={addPost}
+              // Pass setPosts function to update posts
             />}
           />
           <Route path="contact" element={<Contact />} />

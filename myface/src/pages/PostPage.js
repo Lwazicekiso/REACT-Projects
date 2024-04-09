@@ -10,7 +10,7 @@ export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts
     setPostInput('');}
 
   return (
-    <section className="post">
+    <section className="post" id=''>
       <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor="titleInput">Title</label> <br />
         <input

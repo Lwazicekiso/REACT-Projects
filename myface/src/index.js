@@ -16,6 +16,7 @@ export function App() {
     {
       title: 'My post',
       content: 'Hello everyone',
+      id:'myid'
     },
   ]);
   const [titleinp, setTitle] = useState('');

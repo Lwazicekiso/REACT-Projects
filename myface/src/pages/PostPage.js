@@ -1,15 +1,13 @@
 import React from 'react';
 
-export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts }) {
-
+export function PostPage({ postInput, setPostInput, titleinp, setTitle, addPost }) {
   const handleAddPost = (e) => {
     e.preventDefault();
-    const newPost = { title: titleinp, content: postInput, id:titleinp };
-    setPosts((prevPosts) => [...prevPosts, newPost]);
-    // Reset input fields after adding a post
+    const newPost = { title: titleinp, content: postInput, id: titleinp };
+    addPost(newPost);
     setTitle('');
-    setPostInput('');}
-
+    setPostInput('');
+  };
 
   return (
     <section className="post" id=''>
@@ -31,8 +29,9 @@ export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts
           onChange={(e) => setPostInput(e.target.value)}
         ></textarea>
         <br />
-        <button onClick={handleAddPost}>Add Post</button>
+        <button onClick={handleAddPost}>Add
+</button>
       </form>
     </section>
   );
-  }
+}

@@ -23,7 +23,6 @@ export function App() {
     const index = posts.findIndex((obj) => obj.id === id);
     if (index !== -1) {
       posts.splice(index, 1);
-      setPosts([...posts]); // Update state with modified array
       alert('Posts after deletion:', posts); // Log updated state
       setPosts((prevPosts) => prevPosts.filter((obj) => obj.id !== id));
 

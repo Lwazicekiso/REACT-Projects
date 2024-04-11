@@ -3,7 +3,7 @@ import React from 'react';
 export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts }) {
   const handleAddPost = (e) => {
     e.preventDefault();
-    const newPost = { title: titleinp, content: postInput };
+    const newPost = { title: titleinp, content: postInput, id:titleinp };
     setPosts((prevPosts) => [...prevPosts, newPost]);
     // Reset input fields after adding a post
     setTitle('');

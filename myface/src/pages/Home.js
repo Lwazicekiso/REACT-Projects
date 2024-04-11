@@ -8,8 +8,7 @@ export function Home({ posts }) {
     <React.Fragment>
       <section id='MainSpace'>
         {posts.map(newpost => (
-          <div  id='newpost.title' key={newpost.title}>
-            {newpost.id = newpost.title}
+          <div  id={newpost.title} key={newpost.title}>
             <h1>{newpost.title}</h1>
             <p>{newpost.content}</p>
             <button>Delete</button>

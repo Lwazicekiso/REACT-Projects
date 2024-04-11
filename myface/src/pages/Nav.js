@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <section>
     
-      <Header title='My Js Blog'/>
+      <Header title='MyFace'/>
       <nav> 
 
 

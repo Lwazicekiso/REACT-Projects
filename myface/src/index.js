@@ -1,4 +1,4 @@
-// App.js
+// index.js
 import React from "react";
 import ReactDOM from 'react-dom/client';
 import { useState } from 'react';
@@ -19,6 +19,17 @@ export function App() {
       id:'myid'
     },
   ]);
+  const deletePost = (id) => {
+    const index = posts.findIndex((obj) => obj.id === id);
+    if (index !== -1) {
+      posts.splice(index, 1);
+      setPosts([...posts]); // Update state with modified array
+      alert('Posts after deletion:', posts); // Log updated state
+      setPosts((prevPosts) => prevPosts.filter((obj) => obj.id !== id));
+
+  }
+  }
+
   const [titleinp, setTitle] = useState('');
   const [postInput, setPostInput] = useState('');
 
@@ -49,6 +60,7 @@ export function App() {
               titleinp={titleinp}
               setPosts={setPosts}
               addPost={addPost}
+              deletePost={deletePost}
               // Pass setPosts function to update posts
             />}
           />

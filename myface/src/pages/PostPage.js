@@ -1,6 +1,7 @@
 import React from 'react';
 
 export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts }) {
+
   const handleAddPost = (e) => {
     e.preventDefault();
     const newPost = { title: titleinp, content: postInput, id:titleinp };
@@ -8,6 +9,7 @@ export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts
     // Reset input fields after adding a post
     setTitle('');
     setPostInput('');}
+
 
   return (
     <section className="post" id=''>

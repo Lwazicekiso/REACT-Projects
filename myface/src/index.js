@@ -19,27 +19,25 @@ export function App() {
       id:'myid'
     },
   ]);
+
   const [titleinp, setTitle] = useState('');
   const [postInput, setPostInput] = useState('');
 
   const addPost = (newPost) => {
     setPosts((prevPosts) => [...prevPosts, newPost]);
   };
-/*
-  function handleAddPost(e) {
-    e.preventDefault();
-    const newPost = { title: titleinp, content: postInput };
-    addPost(newPost);
-  }
-*/
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Nav />} >
           <Route
             index
-            element={<Home posts={posts} />}
+            element={<Home posts={posts}
+            setPosts={setPosts}
+            />}
           />
+
           <Route
             path="/post"
             element={<PostPage

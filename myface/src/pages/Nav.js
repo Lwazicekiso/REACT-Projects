@@ -11,12 +11,9 @@ const Nav = ({ searchVal, setSearchVal, searchFil, resetSearch }) => { // Receiv
         <ul>
           <li>
             <form style={{ marginRight: '2%', }}> 
-              <input value={searchVal} placeholder="Search" onChange={e => setSearchVal(e.target.value)} type="text" />
-              <button id='searchB' onClick={(e) => { 
-    e.preventDefault(); 
-    searchFil(); 
-}}>Search</button>
-              <button onClick={resetSearch}>Clear Search</button> {/* Add reset button */}
+              <input type='button' value={searchVal} placeholder="Search" onChange={e => setSearchVal(e.target.value)} type="text" />
+              <button id='searchB' type='button' onClick={(e) => {searchFil();e.preventDefault()}}>Search</button>
+              <button onClick={(e)=>{e.preventDefault();resetSearch()}}>Clear Search</button>  
             </form> 
             </li>
               <li>

@@ -1,22 +1,20 @@
-//nav.js 
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import Header from "./Header";
-import { useRef } from "react";
-const Nav = () => {
-  const Search = useRef();
+
+const Nav = ({ searchVal, setSearchVal, searchFil, resetSearch }) => { // Receive props
+
   return (
     <section>
-    
       <Header title='My Js Blog'/>
       <nav> 
-
-
-          <ul>
-            <li>
-              <form style={{marginRight:'2%',}} rel={Search}>
-                <input  placeholder="Search" type="text"/>
-              </form> 
+        <ul>
+          <li>
+            <form style={{ marginRight: '2%', }}> 
+              <input value={searchVal} placeholder="Search" onChange={e => setSearchVal(e.target.value)} type="text" />
+              <button id='searchB' onClick={searchFil}>Search</button>
+              <button onClick={resetSearch}>Clear Search</button> {/* Add reset button */}
+            </form> 
             </li>
               <li>
                 <Link to="/">Home</Link>
@@ -31,9 +29,7 @@ const Nav = () => {
               <Link to='/About'>About</Link>
               </li>
             </ul>
-
       </nav>
-
       <Outlet />
     </section>
   )

@@ -6,8 +6,9 @@ export function Home({ posts,setPosts }) {
   const delb = (a)=>{
       let updatedposts = posts.filter(post => post.id !== a);
       setPosts(updatedposts)
-
                     }
+                    
+
   return (
     <React.Fragment>
       <section id='MainSpace'>

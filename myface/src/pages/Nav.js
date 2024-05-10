@@ -12,7 +12,10 @@ const Nav = ({ searchVal, setSearchVal, searchFil, resetSearch }) => { // Receiv
           <li>
             <form style={{ marginRight: '2%', }}> 
               <input value={searchVal} placeholder="Search" onChange={e => setSearchVal(e.target.value)} type="text" />
-              <button id='searchB' onClick={searchFil}>Search</button>
+              <button id='searchB' onClick={(e) => { 
+    e.preventDefault(); 
+    searchFil(); 
+}}>Search</button>
               <button onClick={resetSearch}>Clear Search</button> {/* Add reset button */}
             </form> 
             </li>

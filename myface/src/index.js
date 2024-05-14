@@ -1,13 +1,17 @@
-import React, { useState,useEffect } from "react";
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './pages/Nav';
-import { Home } from './pages/Home';
-import { PostPage } from './pages/PostPage';
-import Contact from './pages/Contact';
-import NoPage from './pages/NoPage';
-import About from './pages/About';
-import './pages/style.css';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Nav from "./pages/Nav";
+import Home from "./pages/Home"; 
+import PostPage from "./pages/PostPage"; 
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
+import About from "./pages/About";
+import PrivateRoute from "./PrivateRoute"; // Import the PrivateRoute
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import { AuthProvider } from "./AuthContext"; 
+import "./pages/style.css";
 
 export function App() {
   const [titleinp, setTitle] = useState("");
@@ -57,17 +61,18 @@ export function App() {
           <Route
             path="/post"
             element={
-              <PostPage
-                postInput={postInput}
-                setPostInput={setPostInput}
-                setTitle={setTitle}
-                titleinp={titleinp}
-                setPosts={setPosts}
-                addPost={addPost}
+            <PrivateRoute>
+              <PostPage postInput={postInput} 
+                setPostInput={setPostInput} 
+                setTitle={setTitle} 
+                titleinp={titleinp} 
+                setPosts={setPosts} 
+                addPost={addPost} 
               />
-            }
+            </PrivateRoute>}
           />
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="contact" element={<Contact />} />
           <Route path="About" element={<About />} />
           <Route path="*" element={<NoPage />} />
@@ -78,4 +83,10 @@ export function App() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <AuthProvider> 
+      <App />
+    </AuthProvider>
+  </React.StrictMode>
+);

@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import Footer from "./Footer";
 
-export function Home({ deletePost,posts,setPosts }) {
+export default function Home({ deletePost, posts, setPosts }) { // Change export to default export
   const [editingPostId, setEditingPostId] = useState(null); // Track the post being edited
   const [editedTitle, setEditedTitle] = useState("");
   const [editedContent, setEditedContent] = useState("");

@@ -1,8 +1,26 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
+import { useAuth } from "../AuthContext";
 
 const Nav = ({ searchVal, setSearchVal }) => {
+  // eslint-disable-next-line
+  const { currentUser, logout } = useAuth(); 
+  const navigate = useNavigate();
+
+  const handleNavigateToSignup = () => {
+    navigate("/signup");
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login"); // Navigate to login after logout
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <section>
       <Header title="My Js Blog" />
@@ -29,6 +47,10 @@ const Nav = ({ searchVal, setSearchVal }) => {
           </li>
           <li>
             <Link to="/About">About</Link>
+            <Link to="/login">Login</Link>
+            <button onClick={handleNavigateToSignup}>Signup</button>
+            <button onClick={handleLogout}>Logout</button>
+            
           </li>
         </ul>
       </nav>

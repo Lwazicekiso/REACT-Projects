@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts }) {
+export default function PostPage({ postInput, setPostInput, titleinp, setTitle, setPosts }) {
   const handleAddPost = (e) => {
     e.preventDefault();
     const newPost = { title: titleinp, content: postInput };
